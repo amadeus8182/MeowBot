@@ -1,5 +1,3 @@
-// require('dotenv').config();
-
 const { EmbedBuilder } = require("@discordjs/builders");
 const { DiscordAPIError } = require("discord.js");
 
@@ -14,7 +12,7 @@ module.exports = {
         let embed = new EmbedBuilder()
             .setTitle(`meow #${index+1}`)
             .setImage(json.results[index].media_formats.gif.url)
-            // .setImage(json.results[index].itemurl)
+
         msg.channel.send({embeds: [embed]})
     }
 }
