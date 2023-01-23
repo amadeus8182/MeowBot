@@ -1,0 +1,9 @@
+# ignore all
+*
+
+# except
+!.gitignore
+!commands/
+!commands/*
+!lain.js
+!README.md
