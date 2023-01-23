@@ -28,7 +28,7 @@ console.log(
 
     require('dotenv').config();
     const fs = require('fs');
-    const {Client, GatewayIntentBits, Collection, Partials} = require('discord.js');
+    const {Client, GatewayIntentBits, Collection, Partials, EmbedBuilder} = require('discord.js');
 
     client = new Client({
         intents: [
@@ -44,14 +44,14 @@ console.log(
             Partials.Message,
             Partials.Reaction
         ],
-    })
+    });
 
     client.commands = new Collection();
-    client.login(process.env.TOKEN)
+    client.login(process.env.TOKEN);
 
 
 
-    const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
+    const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
     for(const file of commandFiles) {
         const command = require(`./commands/${file}`);
@@ -61,10 +61,10 @@ console.log(
 
 
     client.on('ready', bootUp);
-    client.on('messageCreate', commands)
+    client.on('messageCreate', commands);
 
     function bootUp() {
-        console.log('Bot Started. Meow.')
+        console.log('Bot Started. Meow.');
     }
 
 
@@ -74,13 +74,13 @@ console.log(
         if(msg.content.startsWith(prefix) || !msg.author.bot) {
             const args = msg.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
-            
+
             if(client.commands.has(command)) {
                 try {
                     client.commands.get(command).execute(msg, args);
                 } catch(error) {
                     console.log(error)
-                    msg.channel.send('Something unexpected happened.')
+                    msg.channel.send('Something unexpected happened.');
                 }
             }
 
