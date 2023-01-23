@@ -49,12 +49,16 @@ console.log(
     client.commands = new Collection();
     client.login(process.env.TOKEN)
 
+
+
     const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 
     for(const file of commandFiles) {
         const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
     }
+
+
 
     client.on('ready', bootUp);
     client.on('messageCreate', commands)
@@ -63,11 +67,14 @@ console.log(
         console.log('Bot Started. Meow.')
     }
 
-    function commands(msg) {
-        if(msg.content.startsWith('m.') || !msg.author.bot) {
-            const args = msg.content.slice(1).split(/ +/);
-            const command = args.shift().toLowerCase();
 
+    const prefix = 'm.'
+
+    function commands(msg) {
+        if(msg.content.startsWith(prefix) || !msg.author.bot) {
+            const args = msg.content.slice(prefix.length).split(/ +/);
+            const command = args.shift().toLowerCase();
+            
             if(client.commands.has(command)) {
                 try {
                     client.commands.get(command).execute(msg, args);
