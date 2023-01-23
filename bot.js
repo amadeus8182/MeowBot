@@ -1,6 +1,6 @@
 console.log('Bot is Starting... Meow Meow...\n\n');
 console.log(
-`             *    ,MMM8&&&.            *
+`             *     ,MMM8&&&.            *
                   MMMM88&&&&&    .
                  MMMM88&&&&&&&
      *           MMM88&&&&&&&&
