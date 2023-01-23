@@ -24,30 +24,47 @@ console.log(
 
 
 /*=========================================================*/
+
+
     require('dotenv').config();
     const fs = require('fs');
-    const Discord = require('discord.js');
+    const {Client, GatewayIntentBits, Collection, Partials} = require('discord.js');
 
-    client = new Discord.Client()
-    client.commands = new Discord.Collection();
+    client = new Client({
+        intents: [
+            GatewayIntentBits.Guilds,
+            GatewayIntentBits.GuildMessages,
+            GatewayIntentBits.MessageContent,
+            GatewayIntentBits.DirectMessages,
+            GatewayIntentBits.DirectMessageTyping
+        ],
+
+        partials: [
+            Partials.Channel,
+            Partials.Message,
+            Partials.Reaction
+        ],
+    })
+
+    client.commands = new Collection();
     client.login(process.env.TOKEN)
 
     const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
 
     for(const file of commandFiles) {
-        const command = require(`./commands.${file}`);
+        const command = require(`./commands/${file}`);
         client.commands.set(command.name, command);
     }
 
     client.on('ready', bootUp);
-    client.on('message', commands)
+    client.on('messageCreate', commands)
 
     function bootUp() {
         console.log('Bot Started. Meow.')
     }
 
-    function comands(msg) {
-        if(msg.content.startsWith('m.') && !msg.author.bot) {
+    function commands(msg) {
+        if(msg.content.startsWith('m.') || !msg.author.bot) {
             const args = msg.content.slice(1).split(/ +/);
             const command = args.shift().toLowerCase();
 
