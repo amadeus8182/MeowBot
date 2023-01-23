@@ -1,0 +1,23 @@
+{
+  "name": "meowbot",
+  "version": "1.0.0",
+  "description": "Use the command `m.help` to view the commands list!<br> Make sure to use m.meow!",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amadeus8182/MeowBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amadeus8182/MeowBot/issues"
+  },
+  "homepage": "https://github.com/Amadeus8182/MeowBot#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
+  }
+}
