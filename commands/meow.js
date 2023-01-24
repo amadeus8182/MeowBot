@@ -1,6 +1,3 @@
-const { EmbedBuilder } = require("@discordjs/builders");
-const { DiscordAPIError } = require("discord.js");
-
 module.exports = {
     name: 'meow',
     async execute(msg) {    
