@@ -1,3 +1,5 @@
+const { EmbedBuilder } = require("@discordjs/builders")
+
 module.exports = {
     name: 'meow',
     async execute(msg) {    
