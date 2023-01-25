@@ -64,6 +64,7 @@ console.log(
     client.on('messageCreate', commands);
 
     function bootUp() {
+        client.user.setActivity('Use m.help!');
         console.log('Bot Started. Meow.');
     }
 
