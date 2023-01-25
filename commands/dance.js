@@ -9,7 +9,7 @@ module.exports = {
 
         const index = Math.floor((Math.random() * json.results.length))
         let embed = new EmbedBuilder()
-            .setTitle(`meow #${index+1}`)
+            .setTitle(`dance #${index+1}`)
             .setImage(json.results[index].media_formats.gif.url)
 
         msg.channel.send({embeds: [embed]})
