@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("@discordjs/builders")
 
 module.exports = {
-    name: 'meow',
+    name: 'dance',
     async execute(msg) {    
         url = `https://g.tenor.com/v2/search?q=kitty dance&key=${process.env.TENORKEY}&limit=50`;
         response = await fetch(url);
