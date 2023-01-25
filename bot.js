@@ -72,7 +72,7 @@ console.log(
     const prefix = 'm.'
 
     function commands(msg) {
-        if(msg.content.toLowerCase().startsWith(prefix) || !msg.author.bot) {
+        if(msg.content.toLowerCase().startsWith(prefix) && !msg.author.bot) {
             const args = msg.content.slice(prefix.length).split(/ +/);
             const command = args.shift().toLowerCase();
 
