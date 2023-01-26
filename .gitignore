@@ -5,6 +5,8 @@
 !.gitignore
 !commands/
 !commands/*
+!helpers/
+!helpers.*
 !lain.js
 !README.md
 !package-lock.json
