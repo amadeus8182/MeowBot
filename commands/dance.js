@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require("@discordjs/builders")
+const get_gif = require('../helpers/gif-getter')
 
 module.exports = {
     name: 'dance',
     execute(msg) {    
-        get_gif.execute(msg, 'kitty dance')
+        get_gif.execute(msg, 'kitty dance', this.name)
     }
 }
