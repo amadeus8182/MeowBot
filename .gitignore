@@ -6,7 +6,7 @@
 !commands/
 !commands/*
 !helpers/
-!helpers.*
+!helpers/*
 !lain.js
 !README.md
 !package-lock.json
