@@ -3,6 +3,7 @@ const bot = require('../bot.js')
 
 module.exports = {
     name: 'help',
+	desc: 'shows this message!',
     execute(msg) {
 		let cmds = []
 

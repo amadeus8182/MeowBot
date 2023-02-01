@@ -2,6 +2,7 @@ const { EmbedBuilder } = require("@discordjs/builders")
 
 module.exports = {
 	name: 'embed',
+	desc: 'sends an embedded version of the user\'s given message.',
 	execute(msg, args) {
 		let sent = args.join(' ');
 		if(sent.length > 256) {
