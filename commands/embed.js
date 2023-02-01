@@ -12,6 +12,7 @@ module.exports = {
 			return
 		}
 		let embedding = new EmbedBuilder()
+			.setColor(parseInt((Math.random()*0xFFFFFF<<0).toString(16), 16))
 			.setTitle(args.join(' '))
 			.setFooter({text: msg.author.username, iconURL: msg.author.displayAvatarURL({dynamic: true})}); 
 		msg.channel.send({embeds: [embedding]})
