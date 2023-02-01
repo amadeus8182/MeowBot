@@ -30,7 +30,7 @@ console.log(
     const fs = require('fs');
     const {Client, GatewayIntentBits, Collection, Partials, EmbedBuilder} = require('discord.js');
 
-    client = new Client({
+	client = new Client({
         intents: [
             GatewayIntentBits.Guilds,
             GatewayIntentBits.GuildMessages,
@@ -58,7 +58,7 @@ console.log(
         client.commands.set(command.name, command);
     }
 
-
+	module.exports.cmds = client.commands;
 
     client.on('ready', bootUp);
     client.on('messageCreate', commands);
