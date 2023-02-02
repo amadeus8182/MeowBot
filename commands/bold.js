@@ -11,6 +11,7 @@ module.exports = {
 			}
 		}
 
+		if(msg.guild!==null) msg.delete();
         msg.channel.send(send)
     }
 }
